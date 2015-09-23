@@ -115,7 +115,7 @@ require(['FFF','picture'],function(FFF,Picture){
 	});
 
 $(document).ready(function(){
-	//alert(1);
+	alert(100s);
     //$(window).on("load",function(){
         imgLocation();
 
