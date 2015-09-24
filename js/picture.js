@@ -72,7 +72,8 @@ define(['FFF','zepto'],function(FFF,$){
                 '<div class="picture_word">'+
                    '<h3>标签：</h3>'+
                     '<ul>'+ tagList+'</ul>'+
-                '</div>');        
+                '</div>'+
+                '<div class="picture_padding"></div>');        
         },
 /*        //改写父类render方法
         render:function(obj){

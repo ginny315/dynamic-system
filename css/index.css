@@ -3,13 +3,15 @@ body {
   font-size: 12px;
 }
 .container_all {
+  width: 100%;
   font-size: 12px;
   color: #b1b4b7;
 }
 .header {
   background-color: #ffffff;
-  width: 100%;
+  width: 86%;
   height: 70px;
+  padding-left: 14%;
 }
 .header div {
   display: inline-block;
@@ -22,7 +24,6 @@ body {
   margin: 0;
   width: 6.33%;
   padding: 0 40px 15px 15px;
-  margin-left: 130px;
 }
 .header .header_nav {
   margin-left: 35px;
@@ -86,16 +87,18 @@ body {
   width: 60%;
   margin-top: 24px;
   margin-left: 35px;
-  background-color: #ccc;
   height: 900px;
   display: inline-block;
   vertical-align: top;
 }
 .container .picture_wrap {
+  cursor: pointer;
   width: 236px;
   margin-right: 20px;
   margin-bottom: 17px;
   display: inline-block;
+  position: relative;
+  vertical-align: top;
 }
 .container .picture_wrap .picture_style {
   width: 236px;
@@ -123,6 +126,11 @@ body {
   display: inline-block;
   margin-left: 3px;
 }
+.container .picture_wrap .picture_padding {
+  width: 236px;
+  height: 16px;
+  background-color: transparent;
+}
 .index_cover {
   opacity: 1;
   width: 60%;
@@ -132,8 +140,10 @@ body {
   vertical-align: top;
   position: absolute;
   z-index: 99;
-  left: calc(308px);
+  left: calc(12% + 205px);
   transform: translateX(-200%);
+  overflow-y: scroll;
+  height: 100%;
 }
 .index_cover .showpicture {
   border: 0px solid #000;
@@ -220,8 +230,9 @@ body {
 }
 .wrapaside {
   display: inline-block;
-  margin-left: 100px;
+  margin-left: 12%;
   vertical-align: top;
+  position: relative;
 }
 .wrapaside h2 {
   margin: 0;
@@ -296,4 +307,20 @@ body {
 .asideTag div:hover {
   color: #f39800;
   cursor: pointer;
+}
+.footer {
+  background-color: #424347;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+}
+.footer .footer_word {
+  height: 55px;
+  line-height: 20px;
+  text-align: center;
+  font-family: "微软雅黑";
+  font-size: 12px;
+  color: #68696c;
+  padding-top: 20px;
 }

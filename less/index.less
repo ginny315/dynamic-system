@@ -16,8 +16,10 @@ body{
 @P20:20px;
 @P10:10px;
 @P15:15px;
+@marginLeft_aside:12%;
 
 .container_all{
+	width: 100%;
 	font-size: @fontZ12;
 	color:#b1b4b7;
 }
@@ -32,9 +34,9 @@ body{
 }
 .header{
 	background-color: @bgcolor;
-	width: 100%;
+	width: 86%;
 	height: 70px;
-
+	padding-left: 14%;
 	div{
 		display: inline-block;
 	}
@@ -48,7 +50,6 @@ body{
 		margin: 0;
 		width: 6.33%;
 		padding: 0 40px 15px 15px;
-		.marginLAside(130px);
 	}
 	.header_nav{
 		margin-left:@marginLeft_wrap;
@@ -108,16 +109,19 @@ body{
 	width: @width_wrap;	
 	margin-top: @marginTop_withHead;
 	margin-left: @marginLeft_wrap;
-	background-color: #ccc;
+	//background-color: #ccc;
 	height: 900px;
 	display: inline-block;
 	vertical-align: top;
 	
 	.picture_wrap{
+		cursor: pointer;
 		width: 236px;
 		margin-right: 20px;
 		margin-bottom: 17px;
 		display: inline-block;
+		position: relative;
+		vertical-align: top;
 		.picture_style{
 			width: 236px;
 			img{
@@ -144,6 +148,11 @@ body{
 				}
 			}
 		}
+		.picture_padding{
+			width: 236px;
+			height: 16px;
+			background-color: transparent;
+		}
 	}
 }	
 .index_cover{
@@ -156,8 +165,10 @@ body{
 	vertical-align: top;
 	position: absolute;
 	z-index: 99;
-	left: calc(273px+@marginLeft_wrap);
+	left: calc(~'12% + 205px');
 	transform:translateX(-200%);
+	overflow-y: scroll;
+	height: 100%;
 
 	.showpicture{
 		.Btest();
@@ -273,8 +284,10 @@ body{
 
 .wrapaside{
 		display: inline-block;
-		.marginLAside();
+		.marginLAside(@marginLeft_aside);
 		vertical-align: top;
+		position: relative;
+
 	h2{
 		margin: 0;
 		padding: 0;
@@ -357,5 +370,21 @@ body{
 		.wordColor(#f39800);
 		cursor: pointer;
 	}
-	
+}
+
+.footer{
+	background-color: #424347;
+	position: fixed;
+	z-index: 100;
+	bottom: 0;
+	width: 100%;
+	.footer_word{
+		height: 55px;
+		line-height: 20px;
+		text-align: center;
+		font-family: "微软雅黑";
+		font-size: 12px;
+		color: #68696c;
+		padding-top: 20px;
+	}
 }
