@@ -73,7 +73,7 @@ body{
 				}
 				center:hover,
 				center:focus{
-					border-bottom: 3px solid #f39800;
+					//border-bottom: 3px solid #f39800;
 					cursor: pointer;
 				}
 			}
@@ -107,6 +107,7 @@ body{
 .container{
 	margin: 0 auto;
 	width: @width_wrap;	
+	min-width: 768px;
 	margin-top: @marginTop_withHead;
 	margin-left: @marginLeft_wrap;
 	//background-color: #ccc;
@@ -188,8 +189,7 @@ body{
 		}
 
 		.showP{
-				/*width: 100%;*/
-				padding: 0 @P20;
+			padding: 0 @P20;
 		}
 		
 		.tag_style{

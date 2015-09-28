@@ -57,7 +57,6 @@ body {
 }
 .header .header_nav ul li center:hover,
 .header .header_nav ul li center:focus {
-  border-bottom: 3px solid #f39800;
   cursor: pointer;
 }
 .header .header_search {
@@ -85,6 +84,7 @@ body {
 .container {
   margin: 0 auto;
   width: 60%;
+  min-width: 768px;
   margin-top: 24px;
   margin-left: 35px;
   height: 900px;
@@ -162,7 +162,6 @@ body {
   width: 100%;
 }
 .index_cover .showpicture .showP {
-  /*width: 100%;*/
   padding: 0 20px;
 }
 .index_cover .showpicture .tag_style {
