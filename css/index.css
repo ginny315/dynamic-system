@@ -4,6 +4,7 @@ body {
 }
 .container_all {
   width: 100%;
+  min-width: 1200px;
   font-size: 12px;
   color: #b1b4b7;
 }
@@ -102,6 +103,7 @@ body {
 }
 .container .picture_wrap .picture_style {
   width: 236px;
+  z-index: 20;
 }
 .container .picture_wrap .picture_style img {
   width: 100%;
@@ -130,6 +132,19 @@ body {
   width: 236px;
   height: 16px;
   background-color: transparent;
+}
+.container .picture_wrap .picture_play {
+  bottom: 70px;
+  left: 10px;
+  position: absolute;
+  z-index: 25;
+  width: 30px;
+  height: 26px;
+  border-radius: 3px;
+  opacity: 0.6;
+  background: #000000 url(../img/iconfont-player-play.png) no-repeat;
+  background-size: 15px;
+  background-position: center;
 }
 .index_cover {
   opacity: 1;
@@ -322,4 +337,26 @@ body {
   font-size: 12px;
   color: #68696c;
   padding-top: 20px;
+}
+.loading {
+  display: none;
+  width: 3%;
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+}
+.loading img {
+  width: 100%;
+}
+.scrollRocket {
+  position: fixed;
+  right: 5%;
+  bottom: 3%;
+  width: 3%;
+  cursor: pointer;
+  z-index: 199;
+  opacity: 0;
+}
+.scrollRocket img {
+  width: 100%;
 }

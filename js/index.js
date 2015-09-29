@@ -4,19 +4,22 @@ require.config({
         jquery:'jquery-1.11.3.min',
         picture:'picture',
         zepto:'zepto',
-        app:'app'
+        app:'app',
+        domReady:'domReady'
     }
 });
 
-require(['jquery','zepto','FFF','picture','app'],function($,zepto,FFF,Picture,App){
+require(['jquery','zepto','FFF','picture','app','domReady'],function($,zepto,FFF,Picture,App,domReady){
 	var F = FFF.FFF;
 	var pictureList = [];
 	var that = this;
 	var cnt = 0;//全局变量用于记录实例化的个数
 	var footer = $('.footer');
+    var loading = $('.loading');
+    var scrollRocket = $('.scrollRocket');
 	//var exports = App.app;
 
-$(document).ready(function(){
+domReady(function(){
 	App.init();
 	$('img').on("load",function(){ 
 		imgLocation();
@@ -31,6 +34,16 @@ $(document).ready(function(){
 			imgLocation();
 		});
     }
+
+    
+
+    scrollRocket.on('click',function(){
+        
+        $('html,body').animate({scrollTop:'0px'},1000,function(){
+            scrollRocket.css({'opacity':'0'});
+        });
+
+    })
 });
 
 function scrollside(){
@@ -42,10 +55,14 @@ function scrollside(){
     $('.index_cover').css({
         'top': index_top
     }); 
+    if(scrollHeight>documentHeight){
+        scrollRocket.animate({'opacity':'1'},1000);
+    }
     return (lastboxHeight<scrollHeight+documentHeight)?true:false;
 }
 
 function imgLocation(){
+    loading.css({'display':'block'});
     var box = $(".picture_wrap");
     //var boxWidth = box.eq(0).width();
     //var num = Math.floor($(window).width()/boxWidth);
@@ -55,12 +72,12 @@ function imgLocation(){
         var boxHeight = box.eq(index).height();
         if(index<3){
             boxArr[index]= boxHeight;
-            console.log('boxArr['+index+']='+boxArr[index]);
         }else{
             var minboxHeight = Math.min.apply(null,boxArr);//获取本行中的最小高度
-            //console.log('minboxHeight='+minboxHeight);
+            console.log('minboxHeight='+minboxHeight);
             var minboxIndex = $.inArray(minboxHeight,boxArr);
 			var topSize = minboxHeight+94;
+            console.log('topSize='+topSize);
             $(value).css({
                 "position":"absolute",
                 "top":topSize,
@@ -69,6 +86,7 @@ function imgLocation(){
             boxArr[minboxIndex]+=box.eq(index).height();
         }
     });
+    loading.css({'display':'none'});
 }  
 });
 

@@ -102,10 +102,10 @@ exports.getDynamicList = function(pageIndex,pageNum,categoryId,tagId,subMenuId){
 		}
 	}
 
-	//for(var i=0 ; i<10 ; i++){
-		var temp = Math.floor(Math.random()*5+1);
-		that.addDynamic('001',['tag1','tag2'],'img/'+temp+'.png','img/'+temp+'.png','this is No.'+temp+'html','this is No.'+temp+'css','this is No.'+temp+'js');
-	//}//that.addId(1,"\u53c2\u8003");
+	for(var i=0 ; i<10 ; i++){
+		var temp = Math.floor(Math.random()*9+1);
+		that.addDynamic('001',['tag1','tag2'],'img/'+temp+'.gif','img/'+temp+'.png','this is No.'+temp+'html','this is No.'+temp+'css','this is No.'+temp+'js');
+	}//that.addId(1,"\u53c2\u8003");
 	/*$.ajax({
 		type:"GET",
 		url:"../dynamicLib/getDynamicList/",
@@ -179,11 +179,11 @@ exports.getBind = function(){
 	$(".css").addClass("codehidden");
 	$(".js").addClass("codehidden");
 
-	$(".showP a").on("click","img",function(){
+	/*$(".showP a").on("click","img",function(){
 		var that = $(this);
 		that.attr("src","/dynamicLib/images/"+Img_Gif.gif);
 	});
-
+*/
 	$(".choose").on("click",function(){
 		var that = $(this);
 		$(".choose").removeClass("choose_after");
