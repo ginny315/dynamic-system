@@ -73,6 +73,7 @@ define(['FFF','zepto'],function(FFF,$){
                    '<h3>标签：</h3>'+
                     '<ul>'+ tagList+'</ul>'+
                 '</div>'+
+                '<div class="picture_play"></div>'+
                 '<div class="picture_padding"></div>');        
         },
 /*        //改写父类render方法
@@ -87,6 +88,7 @@ define(['FFF','zepto'],function(FFF,$){
             var html = that.getPictureHtmlcode();
             var css = that.getPictureCsscode();
             var js = that.getPictureJscode();
+            var picture_play = MyPictureBind.find($('.picture_play'));
             
             MyPictureBind.on('click',function(){
                 alert("点击图片出现详情页");
@@ -94,16 +96,28 @@ define(['FFF','zepto'],function(FFF,$){
                     'opacity':'1',
                     'transform':'translateX(0%)'
                 });
-            /*$('.index_cover').animate({
-                    opacity:'1',
-                    transform:'translateX(0%)'
-            },1000);*/
+
+            picture_play.on('click',function(event){               
+                event.stopPropagation();
+                event.preventDefault();
+                 alert(1);
+                picture_play.css({
+                    'background':'#000 url(./img/iconfont-stop.png) no-repeat',
+                    'background-size':'15px',
+                    'background-position':'center'
+                });
+                MyPictureBind.find("img").attr("src",that.getPictureGif());
+            });
+
                 var tags = that.getPictureTag();
                 var tagList = '';
+                $("<span>").html("ID号：").addClass("tag_style").appendTo($(".idList"));
+                $("<span>").html("标签：").addClass("tag_style").appendTo($(".tagList")); 
                 for(var i=0 ; i<tags.length ; i++){
                    //$("<div>").text(decodeURI(name)).addClass("Tag_style").appendTo($(".asideTag"));
                     $("<div>").text(tags[i]).addClass("button").appendTo($(".tagList"));
                 }
+                
                 $("<span>").html(id).addClass("tag_style").appendTo($(".idList"));
                 $("<div>").html(html).appendTo($(".html"));
                 $("<div>").html(css).appendTo($(".css"));

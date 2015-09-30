@@ -20,6 +20,8 @@ body{
 
 .container_all{
 	width: 100%;
+	//min-width: calc(~'12% + 1000px');
+	min-width: 1200px;
 	font-size: @fontZ12;
 	color:#b1b4b7;
 }
@@ -73,7 +75,7 @@ body{
 				}
 				center:hover,
 				center:focus{
-					border-bottom: 3px solid #f39800;
+					//border-bottom: 3px solid #f39800;
 					cursor: pointer;
 				}
 			}
@@ -107,6 +109,7 @@ body{
 .container{
 	margin: 0 auto;
 	width: @width_wrap;	
+	min-width: 768px;
 	margin-top: @marginTop_withHead;
 	margin-left: @marginLeft_wrap;
 	//background-color: #ccc;
@@ -124,6 +127,7 @@ body{
 		vertical-align: top;
 		.picture_style{
 			width: 236px;
+			z-index: 20;
 			img{
 				width: 100%;
 			}
@@ -152,6 +156,20 @@ body{
 			width: 236px;
 			height: 16px;
 			background-color: transparent;
+		}
+		.picture_play{
+			bottom: 70px;
+			left: 10px;
+			position: absolute;
+			z-index: 25;
+			width: 30px;
+			height: 26px;
+			border-radius: 3px;
+			opacity: 0.6;
+			background:#000 url(../img/iconfont-player-play.png) no-repeat;
+			background-size: 15px;
+			background-position: center;
+			//border: 5px solid transparent;
 		}
 	}
 }	
@@ -188,8 +206,7 @@ body{
 		}
 
 		.showP{
-				/*width: 100%;*/
-				padding: 0 @P20;
+			padding: 0 @P20;
 		}
 		
 		.tag_style{
@@ -386,5 +403,29 @@ body{
 		font-size: 12px;
 		color: #68696c;
 		padding-top: 20px;
+	}
+}
+
+.loading{
+	display: none;
+	width: 3%;
+	position: fixed;
+	bottom: 0%;
+	left: 50%;
+	img{
+		width: 100%;
+	}
+}
+
+.scrollRocket{
+	position: fixed;
+	right: 5%;
+	bottom: 3%;
+	width: 3%;
+	cursor: pointer;
+	z-index: 199;
+	opacity: 0;
+	img{
+		width: 100%;
 	}
 }
