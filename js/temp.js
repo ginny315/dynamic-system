@@ -138,35 +138,31 @@ function scrollside(){
     return (lastboxHeight<scrollHeight+documentHeight)?true:false;
 }
 
-function imgLocation(){
-	//alert(2);
+function imgLocation(){ 
     var box = $(".picture_wrap");
-    console.log('box='+box);
-    var boxWidth = box.eq(0).width();
-    var num = Math.floor($(window).width()/boxWidth);
+    //var boxWidth = box.eq(0).width();
+    //var num = Math.floor($(window).width()/boxWidth);
     var boxArr=[];
     box.each(function(index,value){
-//        console.log(index+"--"+value);
+        //console.log('index='+index);
         var boxHeight = box.eq(index).height();
-        if(index<num){
+        if(index<3){
             boxArr[index]= boxHeight;
-//            console.log(boxHeight);
         }else{
-            var minboxHeight = Math.min.apply(null,boxArr);
+            var minboxHeight = Math.min.apply(null,boxArr);//获取本行中的最小高度
             console.log('minboxHeight='+minboxHeight);
             var minboxIndex = $.inArray(minboxHeight,boxArr);
-//            console.log("minboxIndex="+minboxIndex);
-//            console.log(value);
-			var topSize = 
+			var topSize = minboxHeight+94;
+            console.log('topSize='+topSize);
             $(value).css({
                 "position":"absolute",
-                "top":minboxHeight,
+                "top":topSize,
                 "left":box.eq(minboxIndex).position().left
             });
             boxArr[minboxIndex]+=box.eq(index).height();
         }
     });
-}   	
+}  	
 })
 
 

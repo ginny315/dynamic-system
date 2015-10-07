@@ -1,6 +1,7 @@
 require.config({
     paths: {
         FFF:'http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/FFF.min',
+        //FFF:'FFF',
         jquery:'jquery-1.11.3.min',
         picture:'picture',
         zepto:'zepto',
@@ -15,9 +16,7 @@ require(['jquery','zepto','FFF','picture','app','domReady'],function($,zepto,FFF
 	var that = this;
 	var cnt = 0;//全局变量用于记录实例化的个数
 	var footer = $('.footer');
-    var loading = $('.loading');
     var scrollRocket = $('.scrollRocket');
-	//var exports = App.app;
 
 domReady(function(){
 	App.init();
@@ -30,6 +29,8 @@ domReady(function(){
             footer.animate({'opacity':'0'},500);
 			App.getDynamicList();//加载动效        
 		}
+
+
         $('img').on("load",function(){ 
 			imgLocation();
 		});
@@ -61,23 +62,20 @@ function scrollside(){
     return (lastboxHeight<scrollHeight+documentHeight)?true:false;
 }
 
-function imgLocation(){
-    loading.css({'display':'block'});
+function imgLocation(){ 
+    console.log("cnt="+cnt);
     var box = $(".picture_wrap");
-    //var boxWidth = box.eq(0).width();
-    //var num = Math.floor($(window).width()/boxWidth);
     var boxArr=[];
     box.each(function(index,value){
-        //console.log('index='+index);
         var boxHeight = box.eq(index).height();
         if(index<3){
             boxArr[index]= boxHeight;
         }else{
             var minboxHeight = Math.min.apply(null,boxArr);//获取本行中的最小高度
-            console.log('minboxHeight='+minboxHeight);
+            //console.log('minboxHeight='+minboxHeight);
             var minboxIndex = $.inArray(minboxHeight,boxArr);
 			var topSize = minboxHeight+94;
-            console.log('topSize='+topSize);
+            //console.log('topSize='+topSize);
             $(value).css({
                 "position":"absolute",
                 "top":topSize,
@@ -86,7 +84,6 @@ function imgLocation(){
             boxArr[minboxIndex]+=box.eq(index).height();
         }
     });
-    loading.css({'display':'none'});
 }  
 });
 

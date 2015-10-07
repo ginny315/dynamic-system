@@ -89,11 +89,15 @@ define(['FFF','zepto'],function(FFF,$){
             var css = that.getPictureCsscode();
             var js = that.getPictureJscode();
             var picture_play = MyPictureBind.find($('.picture_play'));
+            var index_cover = $('.index_cover');
             
             MyPictureBind.on('click',function(){
                 alert("点击图片出现详情页");
-                $('.index_cover').css({
-                    'opacity':'1',
+                index_cover.css({
+                    //'opacity':'1',
+                    '-webkit-transform':'translateX(0%)',
+                    '-o-transform':'translateX(0%)',
+                    '-moz-transform':'translateX(0%)',
                     'transform':'translateX(0%)'
                 });
 
@@ -111,6 +115,7 @@ define(['FFF','zepto'],function(FFF,$){
 
                 var tags = that.getPictureTag();
                 var tagList = '';
+                var gif = that.getPictureGif();
                 $("<span>").html("ID号：").addClass("tag_style").appendTo($(".idList"));
                 $("<span>").html("标签：").addClass("tag_style").appendTo($(".tagList")); 
                 for(var i=0 ; i<tags.length ; i++){
@@ -122,7 +127,7 @@ define(['FFF','zepto'],function(FFF,$){
                 $("<div>").html(html).appendTo($(".html"));
                 $("<div>").html(css).appendTo($(".css"));
                 $("<div>").html(js).appendTo($(".js"));
-                $(".showP").find("img").attr("src",that.getPictureGif());
+                $(".showP").find("img").attr("src",gif);
                 //这里有了标签要改
                 //$("<div>").text(decodeURI(name)).addClass("Tag_style").appendTo($(".asideTag"));
                 console.log(html);

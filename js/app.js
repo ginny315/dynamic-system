@@ -4,6 +4,8 @@ define(['jquery','zepto','FFF','picture'],function($,zepto,FFF,Picture){
 	var pictureList = [];
 	var that = this;
 	var footer = $('.footer');
+	var detail_back  = $(".detail_back");
+	var index_cover = $('.index_cover');
 
 	window.cnt = 0;//全局变量用于记录实例化的个数
 	window.pageNum = 20;//每次请求的数据库记录条数
@@ -213,9 +215,12 @@ exports.getBind = function(){
 		}
 	});
 
-	$(".detail_back").on('click',function(){
-		$('.index_cover').css({
-			'opacity':'0',
+	detail_back.on('click',function(){
+		index_cover.css({
+			//'opacity':'0',
+			'-webkit-transform':'translateX(-200%)',
+			'-o-transform':'translateX(-200%)',
+			'-moz-transform':'translateX(-200%)',
             'transform':'translateX(-200%)'
 		});
 		$('.tagList').html('');
