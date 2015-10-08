@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        FFF:'http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/FFF.min',
+        //FFF:'http://image.yihaodianimg.com/mobile-ued/FFF/v0.1.2/FFF.min',
         //FFF:'FFF',
         jquery:'jquery-1.11.3.min',
         picture:'picture',
@@ -17,6 +17,7 @@ require(['jquery','zepto','FFF','picture','app','domReady'],function($,zepto,FFF
 	var cnt = 0;//全局变量用于记录实例化的个数
 	var footer = $('.footer');
     var scrollRocket = $('.scrollRocket');
+    var wrapaside = $('.wrapaside');
 
 domReady(function(){
 	App.init();
@@ -36,14 +37,23 @@ domReady(function(){
 		});
     }
 
+    $(window).on('scroll' ,function(){
+        if($(window).scrollTop() > 500){
+           scrollRocket.css({'opacity':'1'}); 
+       }/*else if($(window).scrollTop() > 100){
+            wrapaside.css({
+                'position':'fixed',
+                'top':'0.5%'
+            });
+       }*/
+    });
     
     /*回到顶部*/
-    scrollRocket.on('click',function(){        
-        $('html,body').animate({scrollTop:'0px'},1000,function(){
+    scrollRocket.on('click',function(){  
+        $('body').animate({scrollTop:'0px'},2000,function(){
             scrollRocket.css({'opacity':'0'});
         });
-
-    })
+    });
 });
 
 function scrollside(){
@@ -55,9 +65,9 @@ function scrollside(){
     $('.index_cover').css({
         'top': index_top
     }); 
-    if(scrollHeight>documentHeight){
+    /*if(scrollHeight>documentHeight){
         scrollRocket.animate({'opacity':'1'},1000);
-    }
+    }*/
     return (lastboxHeight<scrollHeight+documentHeight)?true:false;
 }
 

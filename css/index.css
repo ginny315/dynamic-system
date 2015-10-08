@@ -147,16 +147,14 @@ body {
   background-position: center;
 }
 .index_cover {
-  opacity: 1;
+  display: none;
   width: 60%;
   margin-top: 24px;
   background-color: #ffffff;
-  display: inline-block;
   vertical-align: top;
   position: absolute;
   z-index: 99;
   left: calc(12% + 205px);
-  transform: translateX(-200%);
   overflow-y: scroll;
   height: 100%;
 }
@@ -360,4 +358,3 @@ body {
 .scrollRocket img {
   width: 100%;
 }
->>>>>>> 7d3c3af7642e63c180cfe2a382ef0fd9b17938ea

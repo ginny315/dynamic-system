@@ -218,10 +218,11 @@ exports.getBind = function(){
 	detail_back.on('click',function(){
 		index_cover.css({
 			//'opacity':'0',
-			'-webkit-transform':'translateX(-200%)',
+			/*'-webkit-transform':'translateX(-200%)',
 			'-o-transform':'translateX(-200%)',
 			'-moz-transform':'translateX(-200%)',
-            'transform':'translateX(-200%)'
+            'transform':'translateX(-200%)'*/
+            'display':'none'
 		});
 		$('.tagList').html('');
 		$('.idList').html('');

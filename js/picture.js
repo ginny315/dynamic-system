@@ -1,4 +1,4 @@
-define(['FFF','zepto'],function(FFF,$){
+define(['zepto','FFF'],function($,FFF){
    
     var F = FFF.FFF;
     var Widget = F.Widget;
@@ -54,6 +54,7 @@ define(['FFF','zepto'],function(FFF,$){
             that.setPictureHtmlcode(value.htmlCode);
             that.setPictureCsscode(value.cssCode);
             that.setPictureJscode(value.jsCode);
+            MyPictureInit.attr('data-gif',value.gif);
         },
         //渲染
         renderUI:function(){
@@ -97,10 +98,11 @@ define(['FFF','zepto'],function(FFF,$){
                 alert("点击图片出现详情页");
                 index_cover.css({
                     //'opacity':'1',
-                    '-webkit-transform':'translateX(0%)',
+                    /*'-webkit-transform':'translateX(0%)',
                     '-o-transform':'translateX(0%)',
                     '-moz-transform':'translateX(0%)',
-                    'transform':'translateX(0%)'
+                    'transform':'translateX(0%)'*/
+                    'display':'block'
                 });
 
             picture_play.on('click',function(event){               
@@ -114,10 +116,10 @@ define(['FFF','zepto'],function(FFF,$){
                 });
                 MyPictureBind.find("img").attr("src",that.getPictureGif());
             });
-
+                var gif = MyPictureBind.attr('data-gif');
                 var tags = that.getPictureTag();
                 var tagList = '';
-                var gif = that.getPictureGif();
+                //var gif = that.getPictureGif();
                 $("<span>").html("ID号：").addClass("tag_style").appendTo($(".idList"));
                 $("<span>").html("标签：").addClass("tag_style").appendTo($(".tagList")); 
                 for(var i=0 ; i<tags.length ; i++){
