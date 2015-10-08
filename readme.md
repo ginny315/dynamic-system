@@ -29,7 +29,8 @@ index还是picture中写更好？用了面向对象的模式之后还是选择pi
 ###8、translate相对的父元素
 left、right相对于上一个非absolute元素，translate相对于自己原来的位置
 
-###9、详情页html css js重点橙色下线随机出现，猜想:dom渲染的先后，首先渲染的默认为第一个
+###9、详情页html css js重点橙色下线随机出现
+猜想:dom渲染的先后，首先渲染的默认为第一个
 
 ###10、jQuery animate队列问题
 在滚动条事件中监听事件，向上时触发了两次事件，在animate队列中，当执行完时一起触发，所以火箭先消失后出现。
