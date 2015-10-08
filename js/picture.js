@@ -91,7 +91,9 @@ define(['FFF','zepto'],function(FFF,$){
             var picture_play = MyPictureBind.find($('.picture_play'));
             var index_cover = $('.index_cover');
             
-            MyPictureBind.on('click',function(){
+            MyPictureBind.on('click',function(event){
+                event.stopPropagation();
+                event.preventDefault();
                 alert("点击图片出现详情页");
                 index_cover.css({
                     //'opacity':'1',

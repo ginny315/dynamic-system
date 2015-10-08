@@ -37,9 +37,8 @@ domReady(function(){
     }
 
     
-
-    scrollRocket.on('click',function(){
-        
+    /*回到顶部*/
+    scrollRocket.on('click',function(){        
         $('html,body').animate({scrollTop:'0px'},1000,function(){
             scrollRocket.css({'opacity':'0'});
         });
